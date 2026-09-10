@@ -19,6 +19,9 @@ def get_db():
         yield db
     finally:
         db.close()
+@app.get("/")
+def root():
+    return {"message": "Employee API is Live da! Go to /docs"}
 @app.post("/register")
 def register(
     user: schemas.UserCreate,
